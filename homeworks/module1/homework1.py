@@ -130,6 +130,19 @@ m_path = u[:,2];
 t_x = 3.2
 n_x = int(t_x/T*N)
 m_x = m_path[n_x]
-print 'remaining fuel at 3.2 sec:', m_x
+print 'remaining fuel at 3.2 s:', m_x
+
+v_max = max(v_path)
+print 'maximum speed of the rocket im m/s:', v_max
+idx_max_v = numpy.where(v_path==v_max)[0][0]
+t_max_v = idx_max_v/(N+0.0)*(T+0.0)
+print 'maximum speed occurs at s:', t_max_v
+h_max_v = h_path[idx_max_v]
+print 'height at maximum speed in m:', h_max_v
+
+idx_impact = numpy.where(h_path < 0.0)[0][0]
+t_impact = idx_impact/(N+0.0)*(T+0.0)
+v_impact = v_path[idx_impact]
+print 'velocity at impact in m/s:', h_max_v
 
 print 'run everything'

@@ -143,6 +143,6 @@ print 'height at maximum speed in m:', h_max_v
 idx_impact = numpy.where(h_path < 0.0)[0][0]
 t_impact = idx_impact/(N+0.0)*(T+0.0)
 v_impact = v_path[idx_impact]
-print 'velocity at impact in m/s:', h_max_v
+print 'velocity at impact in m/s:', v_impact
 
 print 'run everything'

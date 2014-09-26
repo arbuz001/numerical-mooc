@@ -1,0 +1,14 @@
+// how to use
+http://openedx.seas.gwu.edu/courses/GW/MAE6286/2014_fall/courseware/9db220161df94f3a80e44ee70974a17a/d934eba78f9e4ebfb637151b85d130f4/
+
+git clone  https://github.com/arbuz001/numerical-mooc
+
+git status
+
+git add README.md
+
+git commit -m "initial test commit"
+
+git push origin master --
+
+git pull

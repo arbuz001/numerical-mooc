@@ -23,7 +23,7 @@ rho[10:20] = 50.0  # as per our I.C.s
 v = Vmax * (1 - rho / Rhomax)
 v_min = min(v)
 v_min_ms = v_min * 1000.0 / 3600.0
-print 'minimum spped at time t = 0 in m/s:', v_min_ms
+print 'minimum speed at time t = 0 in m/s:', v_min_ms
 
 # print(rho)
 # plt.plot(x, rho, color='#003366', ls='--', lw=3)
@@ -31,15 +31,14 @@ print 'minimum spped at time t = 0 in m/s:', v_min_ms
 
 for n in range(1, nt):
     rhon = rho.copy()
+    rho[:-1] = rhon[:-1] - dt / dx * Vmax * (rhon[1:] - rhon[:-1]) * (1 - rhon[1:] / Rhomax)
     rho[0] = 10.0
-    for i in range(1, nx):
-        rho[i] = rhon[i - 1] - dt / dx * Vmax * (rhon[i] - rhon[i - 1]) * (1 - rhon[i] / Rhomax)
 
 # at time t = 2 sec
 v = Vmax * (1 - rho / Rhomax)
 v_min = min(v)
 v_min_ms = v_min * 1000.0 / 3600.0
-print 'minimum spped at time t =', n_sec, 'in m/s:', v_min_ms
+print 'minimum speed at time t =', n_sec, 'in m/s:', v_min_ms
 
 plt.plot(x, rho, color='#003366', ls='--', lw=3)
 # plt.ylim(0, 2.5);
